@@ -155,6 +155,11 @@ function draw() {
     
     
     var choices = ["A", "B", "C", "D"]
+    var choiceToDegree = {};
+    choiceToDegree["A"] = resultDegreeA
+    choiceToDegree["B"] = resultDegreeB
+    choiceToDegree["C"] = resultDegreeC
+    choiceToDegree["D"] = resultDegreeD
    
     
     var indexToRemove1 = choices.indexOf(maxAngleAnswer)
@@ -163,27 +168,33 @@ function draw() {
         choices.splice(indexToRemove2, 1)
 
     
-    var answer1 = maxAngleAnswer +", "+ choices[0] + ", " + choices[1] + ", " + minAngleAnswer 
-    var answer2 = maxAngleAnswer +", "+ choices[1] + ", " + choices[0] + ", " + minAngleAnswer 
-    var answer3 = minAngleAnswer +", "+ choices[0] + ", " + choices[1] + ", " + maxAngleAnswer 
-    var answer4 = minAngleAnswer +", "+ choices[1] + ", " + choices[0] + ", " + maxAngleAnswer 
-
-    var answers = [answer1, answer2, answer3, answer4]
-    var shuffledAnswers = shuffle(answers)
-    
-    var choiceToDegree = {};
-    choiceToDegree["A"] = resultDegreeA
-    choiceToDegree["B"] = resultDegreeB
-    choiceToDegree["C"] = resultDegreeC
-    choiceToDegree["D"] = resultDegreeD
+    var answer1;
+    var answer2;
+    var answer3;
+    var answer4;
     
     var correctAnswer;
     if(choiceToDegree[choices[0]] < choiceToDegree[choices[1]]){
         correctAnswer = minAngleAnswer +", "+ choices[0] + ", " + choices[1] + ", " + maxAngleAnswer 
+        answer1 = choices[0] +", "+ minAngleAnswer + ", " + choices[1] + ", " +maxAngleAnswer
+        answer2 = choices[0] +", "+ minAngleAnswer + ", " + maxAngleAnswer  + ", " + choices[1]
+        answer3 = minAngleAnswer +", "+ choices[0] + ", " + choices[1] + ", " + maxAngleAnswer 
+        answer4 = minAngleAnswer +", "+ choices[0] + ", " + maxAngleAnswer + ", " + choices[1] 
     }
     else{
         correctAnswer = minAngleAnswer +", "+ choices[1] + ", " + choices[0] + ", " + maxAngleAnswer 
+        answer1 = choices[1] +", "+ minAngleAnswer + ", " + choices[0] + ", " +maxAngleAnswer
+        answer2 = choices[1] +", "+ minAngleAnswer + ", " + maxAngleAnswer  + ", " + choices[0]
+        answer3 = minAngleAnswer +", "+ choices[1] + ", " + choices[0] + ", " + maxAngleAnswer 
+        answer4 = minAngleAnswer +", "+ choices[1] + ", " + maxAngleAnswer + ", " + choices[0] 
     }
+
+    var answers = [answer1, answer2, answer3, answer4]
+    var shuffledAnswers = shuffle(answers)
+    
+
+    
+  
     
     
     createAnswers(shuffledAnswers, correctAnswer);
