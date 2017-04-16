@@ -70,9 +70,9 @@ function draw() {
 
 		//calculate angle C
 
-		var C12 = Math.sqrt(Math.pow((x41 - 700), 2) + Math.pow((y41 - 50), 2));
-	var C13 = Math.sqrt(Math.pow((x41 - x42), 2) + Math.pow((y41 - y42), 2));
-	var C23 = Math.sqrt(Math.pow((700 - x42), 2) + Math.pow((50 - y42), 2));
+		var C12 = Math.sqrt(Math.pow((x31 - 500), 2) + Math.pow((y31 - 50), 2));
+	var C13 = Math.sqrt(Math.pow((x31 - x32), 2) + Math.pow((y31 - y32), 2));
+	var C23 = Math.sqrt(Math.pow((500 - x32), 2) + Math.pow((50 - y32), 2));
 	var resultDegreeC = Math.acos(((Math.pow(C12, 2)) + (Math.pow(C13, 2)) - (Math.pow(C23, 2))) / (2 * C12 * C13)) * 180 / Math.PI;
 
 	document.getElementById('C').innerHTML = "C = " + (resultDegreeC.toFixed(2))
@@ -89,9 +89,9 @@ function draw() {
 
 		//calculate angle D
 
-    var D12 = Math.sqrt(Math.pow((x31 - 500), 2) + Math.pow((y31 - 50), 2));
-	var D13 = Math.sqrt(Math.pow((x31 - x32), 2) + Math.pow((y31 - y32), 2));
-	var D23 = Math.sqrt(Math.pow((500 - x32), 2) + Math.pow((50 - y32), 2));
+    var D12 = Math.sqrt(Math.pow((x41 - 700), 2) + Math.pow((y41 - 50), 2));
+	var D13 = Math.sqrt(Math.pow((x41 - x42), 2) + Math.pow((y41 - y42), 2));
+	var D23 = Math.sqrt(Math.pow((700 - x42), 2) + Math.pow((50 - y42), 2));
 	var resultDegreeD = Math.acos(((Math.pow(D12, 2)) + (Math.pow(D13, 2)) - (Math.pow(D23, 2))) / (2 * D12 * D13)) * 180 / Math.PI;
 
 
