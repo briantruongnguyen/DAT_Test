@@ -1,8 +1,6 @@
 $(document).ready(function(){
-
-
 		draw();
-		});
+});
 
 //function draw
 function draw() {
@@ -28,23 +26,47 @@ function draw() {
 		var x42 = Math.floor(Math.random() * (950 - 880 + 10)) + 700
 		var y42 = Math.floor(Math.random() * (700 - 650 + 10)) + 20
 
-		//calculate angle A
-
-		var A12 = Math.sqrt(Math.pow((x11 - 100), 2) + Math.pow((y11 - 15), 2));
+    
+    var maxAngle = 0;
+    var maxAngleAnswer = "";
+    var minAngle = 360;
+    var minAngleAnswer = "";
+    //calculate angle A    
+    var A12 = Math.sqrt(Math.pow((x11 - 100), 2) + Math.pow((y11 - 15), 2));
 	var A13 = Math.sqrt(Math.pow((x11 - x12), 2) + Math.pow((y11 - y12), 2));
 	var A23 = Math.sqrt(Math.pow((100 - x12), 2) + Math.pow((15 - y12), 2));
 	var resultDegreeA = Math.acos(((Math.pow(A12, 2)) + (Math.pow(A13, 2)) - (Math.pow(A23, 2))) / (2 * A12 * A13)) * 180 / Math.PI;
 
 	document.getElementById('A').innerHTML = "A = " + (resultDegreeA.toFixed(2))
+    
+    if(resultDegreeA > maxAngle){
+        maxAngleAnswer = "A"
+        maxAngle = resultDegreeA
+    }
+    
+    if(resultDegreeA < minAngle){
+        minAngleAnswer = "A"
+        minAngle = resultDegreeA
+    }
 
-		//calculate angle B
+    //calculate angle B
 
-		var B12 = Math.sqrt(Math.pow((x21 - 300), 2) + Math.pow((y21 - 50), 2));
+    var B12 = Math.sqrt(Math.pow((x21 - 300), 2) + Math.pow((y21 - 50), 2));
 	var B13 = Math.sqrt(Math.pow((x21 - x22), 2) + Math.pow((y21 - y22), 2));
 	var B23 = Math.sqrt(Math.pow((300 - x22), 2) + Math.pow((50 - y22), 2));
 	var resultDegreeB = Math.acos(((Math.pow(B12, 2)) + (Math.pow(B13, 2)) - (Math.pow(B23, 2))) / (2 * B12 * B13)) * 180 / Math.PI;
 
 	document.getElementById('B').innerHTML = "B = " + (resultDegreeB.toFixed(2))
+    
+    if(resultDegreeB > maxAngle){
+        maxAngleAnswer = "B"
+        maxAngle = resultDegreeB
+    }
+    
+    if(resultDegreeB < minAngle){
+        minAngleAnswer = "B"
+        minAngle = resultDegreeB
+    }
 
 		//calculate angle C
 
@@ -53,18 +75,39 @@ function draw() {
 	var C23 = Math.sqrt(Math.pow((700 - x42), 2) + Math.pow((50 - y42), 2));
 	var resultDegreeC = Math.acos(((Math.pow(C12, 2)) + (Math.pow(C13, 2)) - (Math.pow(C23, 2))) / (2 * C12 * C13)) * 180 / Math.PI;
 
-	document.getElementById('C').innerHTML = "D = " + (resultDegreeC.toFixed(2))
+	document.getElementById('C').innerHTML = "C = " + (resultDegreeC.toFixed(2))
+    
+    if(resultDegreeC > maxAngle){
+        maxAngleAnswer = "C"
+        maxAngle = resultDegreeC
+    }
+    
+    if(resultDegreeC < minAngle){
+        minAngleAnswer = "C"
+        minAngle = resultDegreeC
+    }
 
 		//calculate angle D
 
-		var D12 = Math.sqrt(Math.pow((x31 - 500), 2) + Math.pow((y31 - 50), 2));
+    var D12 = Math.sqrt(Math.pow((x31 - 500), 2) + Math.pow((y31 - 50), 2));
 	var D13 = Math.sqrt(Math.pow((x31 - x32), 2) + Math.pow((y31 - y32), 2));
 	var D23 = Math.sqrt(Math.pow((500 - x32), 2) + Math.pow((50 - y32), 2));
 	var resultDegreeD = Math.acos(((Math.pow(D12, 2)) + (Math.pow(D13, 2)) - (Math.pow(D23, 2))) / (2 * D12 * D13)) * 180 / Math.PI;
 
 
-	document.getElementById('D').innerHTML = "C = " + (resultDegreeD.toFixed(2))
-		var canvas = document.getElementById('canvas');
+	document.getElementById('D').innerHTML = "D = " + (resultDegreeD.toFixed(2))
+    
+    if(resultDegreeD > maxAngle){
+        maxAngleAnswer = "D"
+        maxAngle = resultDegreeD
+    }
+    
+    if(resultDegreeD < minAngle){
+        minAngleAnswer = "D"
+        minAngle = resultDegreeD
+    }
+    
+    var canvas = document.getElementById('canvas');
 	if (canvas.getContext) {
 		var ctx = canvas.getContext('2d');
 
@@ -108,7 +151,81 @@ function draw() {
 		ctx.stroke();
 
 	}
+    
+    
+    
+    var choices = ["A", "B", "C", "D"]
+   
+    
+    var indexToRemove1 = choices.indexOf(maxAngleAnswer)
+    choices.splice(indexToRemove1, 1)
+    var indexToRemove2 = choices.indexOf(minAngleAnswer)
+        choices.splice(indexToRemove2, 1)
 
+    
+    var answer1 = maxAngleAnswer +", "+ choices[0] + ", " + choices[1] + ", " + minAngleAnswer 
+    var answer2 = maxAngleAnswer +", "+ choices[1] + ", " + choices[0] + ", " + minAngleAnswer 
+    var answer3 = minAngleAnswer +", "+ choices[0] + ", " + choices[1] + ", " + maxAngleAnswer 
+    var answer4 = minAngleAnswer +", "+ choices[1] + ", " + choices[0] + ", " + maxAngleAnswer 
+
+    var answers = [answer1, answer2, answer3, answer4]
+    var shuffledAnswers = shuffle(answers)
+    
+    var choiceToDegree = {};
+    choiceToDegree["A"] = resultDegreeA
+    choiceToDegree["B"] = resultDegreeB
+    choiceToDegree["C"] = resultDegreeC
+    choiceToDegree["D"] = resultDegreeD
+    
+    var correctAnswer;
+    if(choiceToDegree[choices[0]] < choiceToDegree[choices[1]]){
+        correctAnswer = minAngleAnswer +", "+ choices[0] + ", " + choices[1] + ", " + maxAngleAnswer 
+    }
+    else{
+        correctAnswer = minAngleAnswer +", "+ choices[1] + ", " + choices[0] + ", " + maxAngleAnswer 
+    }
+    
+    
+    createAnswers(shuffledAnswers, correctAnswer);
+
+}
+
+ // Creates a list of the answer choices as radio inputs
+function createAnswers(answers, correctanswer) {
+    var radioList = $('<ul>');
+    var item;
+    var input = '';
+    for (var i = 0; i < answers.length; i++) {
+      item = $('<li>');
+      input = '<input type="radio" name="answer" value=' + i + ' />';
+      input += answers[i];
+      item.append(input);
+      radioList.append(item);
+    }
+    $("#choices").append(radioList);
+    
+    var correctAnswer = '<p>' +"Correct Answer is "+ correctanswer + "</p>"
+    $("#choices").append(correctAnswer);
+}
+
+//Implementation of the Fisher Yates Shuffle Algorithm
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }
 
 ////////////////////Sort array//////////////////////
