@@ -222,7 +222,7 @@ function createAnswers(answers, correctanswer) {
 function checkAnswer() 
 
 	{
-	var selections = document.getElementsByName("answer");
+	var selections = document.getElementsByName("answers");
 	for (var i=0; i < selections.length; i++) 
 		{
 		if(selections[i].checked)
