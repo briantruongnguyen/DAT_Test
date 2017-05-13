@@ -219,19 +219,18 @@ function createAnswers(answers, correctanswer) {
     $("#choices").append(correctAnswer);
 }
 
-function checkAnswer() {alert ("CHECKING");}  {
-	 choices = document.getElementsByName("answer");
-	for (var i=0; i < answers.length; i++) {
-		if(answers[i].checked){
-			choice = answers[i].value;
+function checkAnswer() 
+
+	{
+	var selections = document.getElementsByName("answer");
+	for (var i=0; i < selections.length; i++) 
+		{
+		if(selections[i].checked)
+			{
+			alert ("u picked" +selections[i].value+"radio button.");
+			}
 		}
 	}
-	if(choice == correctanswer) {
-		alert ("CORRECT!");
-	} else { alert ("WRONG!"); 
-	       }
-
-}
 
 
 
