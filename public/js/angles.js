@@ -220,7 +220,7 @@ function createAnswers(answers, correctanswer) {
     $("#choices").append(correctAnswer);
 }
 
-function checkAnswer() {
+function checkAnswer() {alert ("CHECKING");}  {
 	 choices = document.getElementsByName("answer");
 	for (var i=0; i < answers.length; i++) {
 		if(answers[i].checked){
