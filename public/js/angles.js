@@ -241,31 +241,32 @@ function shuffle(array) {
 }
 
 ///////////////////Sort array//////////////////////		
- -		
- -var array = [5,7,8,2,3,1,6];		
- -var temp;		
- -function sort(array) {		
- -	for(var i=0; i<array.length; i++) {		
- -		for (var j=0; j<array.length; j++) {		
- -			if (array[i] < array[j] && i!=j) {		
- -				temp = array[j];		
- -				array[j] = array[i];		
- -				array[i] = temp;		
- -		
- -			}   		
- -		
- -		}		
- -	}		
- -	return array;		
- -}		
- -		
- -var sortedArray = sort(array);		
- -document.getElementById('results').innerHTML += sortedArray;		
- -		
- -function showAnswer() {		
- -	var x = document.getElementById('showResult');		
- -	if (x.style.display === 'none') {		
- -		x.style.display = 'block';		
- -	} else {		
- -		x.style.display = 'none';		
- -	}
+ 		
+ var array = [5,7,8,2,3,1,6];		
+ var temp;		
+ function sort(array) {		
+ 	for(var i=0; i<array.length; i++) {		
+ 		for (var j=0; j<array.length; j++) {		
+ 			if (array[i] < array[j] && i!=j) {		
+ 				temp = array[j];		
+ 				array[j] = array[i];		
+ 				array[i] = temp;		
+ 	
+ 			}   		
+ 		
+ 		}		
+ 	}		
+ 	return array;		
+ }		
+ 		
+ var sortedArray = sort(array);		
+document.getElementById('results').innerHTML += sortedArray;		
+		
+function showAnswer() {		
+	var x = document.getElementById('showResult');		
+	if (x.style.display === 'none') {		
+		x.style.display = 'block';		
+	} else {		
+		x.style.display = 'none';		
+ 	}
+ }
