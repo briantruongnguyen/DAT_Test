@@ -220,8 +220,6 @@ function createAnswers(answers, correctanswer) {
     $("#choices").append(correctAnswer);
 }
 
-function checkAnswer() {
-	alert ("OK GOOD!");
 
 
 //Implementation of the Fisher Yates Shuffle Algorithm
