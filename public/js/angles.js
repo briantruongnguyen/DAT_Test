@@ -219,12 +219,6 @@ function createAnswers(answers, correctanswer) {
     $("#choices").append(correctAnswer);
 }
 
-function extractResult(result){     
-    jQuery.each(result, function(index, value) {
-        // create a LI for each iteration and append to the UL
-        $('<li />', {text: index + ', ' + value}).appendTo(list);
-    }}
-
 //check answer
 function checkAnswer() 
 	var selections = document.getElementsByName("input");
