@@ -215,7 +215,7 @@ function createAnswers(answers, correctanswer) {
       radioList.append(item);
     }
     $("#choices").append(radioList);
-	var += "<button onclick='checkAnswer()'>Submit Answer</button>";
+	
 	
 	
     var correctAnswer = '<p>' +"Correct Answer is "+ correctanswer + "</p>"
