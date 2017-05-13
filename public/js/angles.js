@@ -220,6 +220,10 @@ function createAnswers(answers, correctanswer) {
     $("#choices").append(correctAnswer);
 }
 
+function checkAnswer() {
+	alert ("OK GOOD"); 
+}
+
 
 
 //Implementation of the Fisher Yates Shuffle Algorithm
@@ -241,6 +245,7 @@ function shuffle(array) {
 
   return array;
 }
+
 
 ///////////////////Sort array//////////////////////		
  		
