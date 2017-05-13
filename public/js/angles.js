@@ -221,16 +221,17 @@ function createAnswers(answers, correctanswer) {
 }
 
 function checkAnswer() {
-	 answers = document.getElementsByName("answer");
+	 choices = document.getElementsByName("answer");
 	for (var i=0; i < answers.length; i++) {
 		if(answers[i].checked){
-			answer = answers[i].value;
+			choice = answers[i].value;
 		}
 	}
-	if(answer == correctanswer) {
+	if(choice == correctanswer) {
 		alert ("CORRECT!");
 	} else { alert ("WRONG!"); 
 	       }
+
 }
 
 
