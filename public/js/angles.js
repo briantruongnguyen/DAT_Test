@@ -221,6 +221,7 @@ function createAnswers(answers, correctanswer) {
 
 //check answer
 function checkAnswer() 
+	{
 	var selections = document.getElementsByName("input");
 	for (var i=0; i < selections.length; i++) 
 		{
