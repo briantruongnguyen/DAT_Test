@@ -219,8 +219,6 @@ function createAnswers(answers, correctanswer) {
     $("#choices").append(correctAnswer);
 }
 
-function checkAnswer() {
-	alert("OK");
 
 //Implementation of the Fisher Yates Shuffle Algorithm
 function shuffle(array) {
