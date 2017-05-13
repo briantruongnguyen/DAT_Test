@@ -223,7 +223,7 @@ function extractResult(result){
     jQuery.each(result, function(index, value) {
         // create a LI for each iteration and append to the UL
         $('<li />', {text: index + ', ' + value}).appendTo(list);
-    }
+    }}
 
 //check answer
 function checkAnswer() 
