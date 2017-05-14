@@ -208,7 +208,7 @@ function createAnswers(answers, correctanswer) {
     var input = '';
     for (var i = 0; i < answers.length; i++) {
       item = $('<li>');
-      input = '<input type="radio" name="answer" value=' + answers[i] + answers[i--] +' onclick="checkAnswer();"/>';
+      input = '<input type="radio" name="answer" value=' + answers[i] + ' onclick="checkAnswer();"/>';
       input += answers[i];	
       item.append(input);
       radioList.append(item);
