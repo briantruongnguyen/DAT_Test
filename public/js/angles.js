@@ -202,7 +202,7 @@ function createAnswers(answers, correctanswer) {
     var input = '';
     for (var i = 0; i < answers.length; i++) {
       item = $('<li>');
-      input = '<input id= 'answers[i]' type="radio" name="answer" value=' + answers[i] +' onclick="checkAnswer();"/>';
+      input = '<input id= '+answers[i]+' type="radio" name="answer" value=' + answers[i] +' onclick="checkAnswer();"/>';
       input += answers[i];	
       item.append(input);
       radioList.append(item);
@@ -216,7 +216,7 @@ function createAnswers(answers, correctanswer) {
 //check answer
 function checkAnswer() 
 	{
-	var selections = document.getElementsByName("answer");
+	var selections = document.getElementsByID("+answers[i]+");
 	for (var i=0; i < selections.length; i++) 
 		{
 		if(selections[i].checked)
