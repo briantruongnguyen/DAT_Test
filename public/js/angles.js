@@ -176,7 +176,7 @@ function draw() {
     var correctAnswer;
     if(choiceToDegree[choices[0]] < choiceToDegree[choices[1]]){
         correctAnswer = minAngleAnswer +"< "+ choices[0] + "< " + choices[1] + "< " + maxAngleAnswer 
-        answer1 = choices[0] +"< "+ minAngleAnswer + "< " + choices[1] + "< " +maxAngleAnswer
+        answer1 = choices[0] +"< "+ minAngleAnswer + "< " + choices[1] + "< " + maxAngleAnswer
         answer2 = choices[0] +"< "+ minAngleAnswer + "< " + maxAngleAnswer  + "< " + choices[1]
         answer3 = minAngleAnswer +"< "+ choices[0] + "< " + choices[1] + "< " + maxAngleAnswer 
         answer4 = minAngleAnswer +"< "+ choices[0] + "< " + maxAngleAnswer + "< " + choices[1] 
@@ -202,14 +202,14 @@ function createAnswers(answers, correctanswer) {
     var input = '';
     for (var i = 0; i < answers.length; i++) {
       item = $('<li>');
-      input = '<input type="radio" name="answer" value=' + answers[i] +' onclick="checkAnswer();"/>';
+      input = '<input id=' +answer[i]+ ' type="radio" name="answer" value=' + answers[i] +' onclick="checkAnswer();"/>';
       input += answers[i];	
       item.append(input);
       radioList.append(item);
     }
     $("#choices").append(radioList);
 	
-    var correctAnswer = '<p>' +"Correct Answer is "+ correctanswer + "</p>"
+    var correctAnswer = '<p>' +"Correct Answer is "+ correctAnswer + "</p>"
     $("#choices").append(correctAnswer);
 }
 
