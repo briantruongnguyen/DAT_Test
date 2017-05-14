@@ -167,7 +167,7 @@ function draw() {
     var indexToRemove2 = choices.indexOf(minAngleAnswer)
         choices.splice(indexToRemove2, 1)
 
-    
+   ///////////////////normal var////////// 
     var answer1;
     var answer2;
     var answer3;
@@ -191,7 +191,31 @@ function draw() {
 
     var answers = [answer1, answer2, answer3, answer4]
     var shuffledAnswers = shuffle(answers)
+
+///////////////////normal var/////////////
+    var answerNS1;
+    var answerNS2;
+    var answerNS3;
+    var answerNS4;
     
+    var correctAnswer;
+    if(choiceToDegree[choices[0]] < choiceToDegree[choices[1]]){
+        correctAnswer = minAngleAnswer +"< "+ choices[0] + "< " + choices[1] + "< " + maxAngleAnswer 
+        answerNS1 = choices[0] +"< "+ minAngleAnswer + "< " + choices[1] + "< " +maxAngleAnswer
+        answerNS2 = choices[0] +"< "+ minAngleAnswer + "< " + maxAngleAnswer  + "< " + choices[1]
+        answerNS3 = minAngleAnswer +"< "+ choices[0] + "< " + choices[1] + "< " + maxAngleAnswer 
+        answerNS4 = minAngleAnswer +"< "+ choices[0] + "< " + maxAngleAnswer + "< " + choices[1] 
+    }
+    else{
+        correctAnswer = minAngleAnswer +"< "+ choices[1] + "< " + choices[0] + "< " + maxAngleAnswer 
+        answerNS1 = choices[1] +"< "+ minAngleAnswer + "< " + choices[0] + "< " +maxAngleAnswer
+        answerNS2 = choices[1] +"< "+ minAngleAnswer + "< " + maxAngleAnswer  + "< " + choices[0]
+        answerNS3 = minAngleAnswer +"< "+ choices[1] + "< " + choices[0] + "< " + maxAngleAnswer 
+        answerNS4 = minAngleAnswer +"< "+ choices[1] + "< " + maxAngleAnswer + "< " + choices[0] 
+    }
+    
+    var answersNS = [answer1, answer2, answer3, answer4]
+	 var shuffledAnswersNS = shuffle(answersNS)
 
     
   
